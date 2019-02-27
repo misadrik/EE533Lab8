@@ -1,2 +1,7 @@
+add a5 a4 a3
+add a2 a3 a0
+addi a3 a2 1
 beq a5 a4 1
-jal a5 1
+lw a5 a4 1
+add a2 a3 a1
+sw a5 a4 1

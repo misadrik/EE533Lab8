@@ -32,7 +32,7 @@ def hazard_detect(instruction,rd):
             return True
     
     if instruction[0] == store_word: 
-        if rd == instruction[2] or rd == instruction[3]: #rd match Sw source or base
+        if rd == instruction[1] or rd == instruction[2]: #rd match Sw source or base
             return True
     
     if instruction[0] in IMMEDIATE: # rd matches with source
@@ -40,11 +40,6 @@ def hazard_detect(instruction,rd):
             return True
 
     if instruction[0] in Branch:
-        print('dect_branch')
-        print(instruction)
-        print(repr(rd))
-        print(repr(instruction[1]))
-        print(rd == instruction[1])
         if rd == instruction[1] or rd == instruction[2]:
             print('2')
             return True
