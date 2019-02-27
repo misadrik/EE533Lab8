@@ -16,10 +16,11 @@ def riscv_compiler():
     for num,instr in enumerate(INSTR):
         print(' ', file = foutlog)
         print(Minicompiler_v2.mini_compiler2(instr), file=fout)
-        
+
+        print(Minicompiler_v2.mini_compiler2(instr), file=foutlog)
         print(Minicompiler_v2.mini_compiler2(instr), file = foutlog)
         print(bin(int(Minicompiler_v2.mini_compiler2(instr),16)),file = foutlog)
-        
+
         print('Examing instruction: ' + str(num+1),file = foutlog)
 
         if Hazard_Detect.BJ_detect(instr[0]) and (num != (instr_count-1)):

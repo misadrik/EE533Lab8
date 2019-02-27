@@ -22,7 +22,6 @@ def BJ_detect(opcode):
     return False
 
 def hazard_detect(instruction,rd):
-    print('hazard_detect_function')
     if instruction[0] in Rtype:
         if rd == instruction[2] or rd == instruction[3]: #rd match Rtype source
             return True
