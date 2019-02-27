@@ -1,0 +1,2 @@
+beq a5 a4 1
+jal a5 1
