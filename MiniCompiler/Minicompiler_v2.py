@@ -107,7 +107,7 @@ def SW_Decoder(opcode, rt, rs, offset):
     rs_bin=dec_to_bin(int(rs), 5)
     offset_bin=dec_to_bin(int(offset), 12)
     
-    Instruction = offset[0:7] + rt_bin + rs_bin + '010' + offset_bin[7:] + '0100011'
+    Instruction = offset_bin[0:7] + rt_bin + rs_bin + '010' + offset_bin[7:] + '0100011'
     
     print(Instruction[0:8], Instruction[8:16],
           Instruction[16:24], Instruction[24:32])
@@ -166,7 +166,7 @@ def Jump_Decoder(opcode,offset):
     offset_bin = dec_to_bin(int(offset), 20)
 
     if opcode == 'j':
-        Instruction = offset_bin[0] + offset_bin[1:8] + offset_bin[9] + offset_bin[10:19] + '00000' + '0110111'
+        Instruction = offset_bin[0] + offset_bin[1:8] + offset_bin[9] + offset_bin[10:19] + '00000' + '1101111'
     
     print(Instruction[0:8], Instruction[8:16],
           Instruction[16:24], Instruction[24:32])
@@ -178,7 +178,7 @@ def JAL_Decoder(opcode, rd, offset):
     
     if opcode == 'jal':
         Instruction = offset_bin[0] + offset_bin[1:9] + \
-            offset_bin[9] + offset_bin[10:20] + rd_bin + '0110111'
+            offset_bin[9] + offset_bin[10:20] + rd_bin + '1101111'
 
     print(Instruction[0:8], Instruction[8:16],
           Instruction[16:24], Instruction[24:32])

@@ -17,7 +17,7 @@ def riscv_compiler():
         print(' ', file = foutlog)
         print(Minicompiler_v2.mini_compiler2(instr), file=fout)
 
-        print(Minicompiler_v2.mini_compiler2(instr), file=foutlog)
+        print(instr, file=foutlog)
         print(Minicompiler_v2.mini_compiler2(instr), file = foutlog)
         print(bin(int(Minicompiler_v2.mini_compiler2(instr),16)),file = foutlog)
 
@@ -30,6 +30,9 @@ def riscv_compiler():
             print('0xB', file=fout)
         
         elif instr[0] == 'nop':
+            pass
+        elif instr[0] == 'sw':
+            print('sw detected it has no influence to others',file = foutlog)
             pass
         else:
             # print('hazard_detect')
