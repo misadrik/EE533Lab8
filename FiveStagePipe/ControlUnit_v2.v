@@ -10,6 +10,7 @@ aka CU_MEM_CTRL {[3:2]CU_Branch,[1]CU_Jump,[0]CU_MemWrite};
 01 Branch not equal
 10 Branch less than
 
+3. Add support for JALR
 /*
 Rtype
 Instruction[31:25] Offset
@@ -63,7 +64,7 @@ begin
   5'b00000: //LW neglect Funct3, do load double
   begin
     CU_IMM = Instr[31:20];
-    CU_ALUSrc = 1; //Rs+IMME
+    CU_ALUSrc = 1; //Rs+Rt
     CU_ALU_OP = 4'b0000; //ALU add
     CU_RegDst = 1;
     CU_MemWrite = 0;
@@ -119,7 +120,7 @@ begin
 
   5'b11000://BEQ BNE BLT
   begin
-    CU_IMM = {Instr[31],Instr[7],Instr[10:5],Instr[11:8]};
+    CU_IMM = {Instr[31],Instr[7],Instr[30:25],Instr[11:8]};
     CU_ALUSrc = 0; //rs rt
     CU_ALU_OP = 4'b1000; //---
     CU_RegDst = 1; //---
