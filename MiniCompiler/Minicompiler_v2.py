@@ -211,18 +211,7 @@ def function_grammer():
 
     
 
-def hazard_detect():
-    fin = open('./assemblycode.txt','r')
-    fout = open('./machinecode.txt', 'w')
-
-    for instructions in fin.readlines():
-        print(repr(instructions))
-        print(mini_compiler2(instructions.split()), file=fout)
-        print('0xB', file=fout)
-        print('0xB', file=fout)
-        print('0xB', file=fout)
-
 if __name__ == "__main__":
     function_grammer()
-    hazard_detect()
+    
 
