@@ -1,18 +1,28 @@
 import Minicompiler_v2 
 
-def BJ_detect():
-    if instruction[0] in Branch:
+Rtype = ['add', 'sub', 'sll', 'xor', 'srl', 'or', 'and']
+load_word = 'lw'
+store_word = 'sw'
+IMMEDIATE = ['addi', 'slti', 'sltiu', 'xori', 'ori', 'andi']
+Branch = ['beq', 'bne', 'blt', 'bge']
+Jump = 'j'
+JAL = 'jal'
+JALR = 'jalr'
+
+def BJ_detect(opcode):
+    if opcode in Branch:
         return True
     
-    if instruction[0] in Jump or instruction[0] in JAL:
+    if opcode in Jump or opcode in JAL:
         return True
 
-    if instruction[0] in JALR:
+    if opcode in JALR:
         return True
 
-    return True
+    return False
+
 def hazard_detect(instruction,rd):
-    print(instruction[0])
+    print('hazard_detect_function')
     if instruction[0] in Rtype:
         if rd == instruction[2] or rd == instruction[3]: #rd match Rtype source
             return True
@@ -30,7 +40,13 @@ def hazard_detect(instruction,rd):
             return True
 
     if instruction[0] in Branch:
-        if rd == instruction[2] or rd == instruction[3]:
+        print('dect_branch')
+        print(instruction)
+        print(repr(rd))
+        print(repr(instruction[1]))
+        print(rd == instruction[1])
+        if rd == instruction[1] or rd == instruction[2]:
+            print('2')
             return True
     
     if instruction[0] in Jump or instruction[0] in JAL:
@@ -40,7 +56,7 @@ def hazard_detect(instruction,rd):
         if rd == instruction[2]:
             return True
 
-    return True
+    return False
 
 if __name__ == "__main__":
     function_grammer()
