@@ -16,8 +16,8 @@ main:
     j loopi
 
 loopi:
-    lw a1 s0 0
-    lw a2 s1 0
+    lw a1 s0 0 #ai
+    lw a2 s1 0 #aj
     nop
     nop
     nop # wait to store in the register file
@@ -31,9 +31,6 @@ swap:
     sw a1 s1 0 
     sw a2 s0 0
     j addj
-    nop
-    nop
-    nop
 
 addj:
    addi s1 s1 1 #no need to add nop here judge last value
@@ -41,11 +38,17 @@ addj:
    nop
    nop
    nop
-   j loopj
+   j loopi
+   nop
+   nop
+   nop
 
 setjeqi:
-    addi s1 x0 x0 #b = i b s1
-    j loopj
+    addi s1 x0 s0 #b = i b s1
+    j loopi
+    nop
+    nop
+    nop
 
 addi:
     addi s0 s0 1 # i++
@@ -54,6 +57,9 @@ addi:
     nop
     nop
     j setjeqi #no need to wait added i come back
+    nop
+    nop
+    nop
 
 exit:
     j exit
