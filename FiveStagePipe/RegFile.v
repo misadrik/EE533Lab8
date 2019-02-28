@@ -44,7 +44,7 @@ module RegFile(
 	initial
 	begin
 		DFF[0] = 0;
-		DFF[1] = 1;
+		DFF[1] = 2;
 		DFF[2] = 2;
 		DFF[3] = 3;
 		DFF[4] = 4;

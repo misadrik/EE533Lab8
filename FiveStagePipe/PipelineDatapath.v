@@ -323,10 +323,10 @@ assign in_fifo_read_en = !in_fifo_empty && out_rdy;
 					InstCounter <= MEM_IMM;
 				else
 				begin
-					if(InstCounter < 9'b000100001)
+					if(InstCounter < 9'b111111111)
 						InstCounter <= InstCounter + 1;
 					else
-						InstCounter <= 9'b000100001;
+						InstCounter <= 9'b111111111;
 				end
 			end
 			else
