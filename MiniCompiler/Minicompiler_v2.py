@@ -166,8 +166,10 @@ def Jump_Decoder(opcode,offset):
     offset_bin = dec_to_bin(int(offset), 20)
 
     if opcode == 'j':
-        Instruction = offset_bin[0] + offset_bin[1:8] + offset_bin[9] + offset_bin[10:19] + '00000' + '1101111'
-    
+        Instruction = offset_bin[0] + offset_bin[10:] + \
+            offset_bin[9] + offset_bin[1:9] + '00000' + '1101111'
+
+
     print(Instruction[0:8], Instruction[8:16],
           Instruction[16:24], Instruction[24:32])
     return hex(int(Instruction, 2))
@@ -177,8 +179,8 @@ def JAL_Decoder(opcode, rd, offset):
     rd_bin = dec_to_bin(int(rd), 5)
     
     if opcode == 'jal':
-        Instruction = offset_bin[0] + offset_bin[1:9] + \
-            offset_bin[9] + offset_bin[10:20] + rd_bin + '1101111'
+        Instruction = offset_bin[0] + offset_bin[10:] + \
+            offset_bin[9] + offset_bin[1:9] + rd_bin + '1101111'
 
     print(Instruction[0:8], Instruction[8:16],
           Instruction[16:24], Instruction[24:32])
@@ -202,16 +204,21 @@ def dec_to_bin(dec_num,digit):
     else:
         return ('{:0'+str(digit)+'b}').format(dec_num,10)
 
-def function_grammer():
-    print('Rtype: add rd, rs, rt')
-    print('LW: lw rd, rs, offset')
-    print('SW: sw rt, rs, offset')
-    print('IMME: addi rd, rs, offset')
-    print('Branch: beq rs,rt,offset')
 
-    
+def print_machinecode():
+    fin = open('./assemblycode.txt', 'r')
+    fout = open('./machinecode.txt', 'w')
+
+    for instructions in fin.readlines():
+        print(repr(instructions))
+        print(mini_compiler2(instructions.split()), file=fout)
+#        print('0xB', file=fout)
+#        print('0xB', file=fout)
+#        print('0xB', file=fout)
 
 if __name__ == "__main__":
-    function_grammer()
+    #function_grammer()
+    print_machinecode()
+    
     
 
