@@ -28,6 +28,10 @@ loopi:
     nop
     nop
     j addj
+    nop
+    nop
+    nop
+    
 
 swap:
     sw a1 s1 0 
