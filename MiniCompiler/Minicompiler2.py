@@ -77,6 +77,8 @@ def function_grammer():
     print('Rtype: add rd, rs, rt')
     print('LW: lw rd, rs, offset')
     print('SW: sw rt, rs, offset')
+
+    
 if __name__ == "__main__":
     function_grammer()
     mini_compiler2()
