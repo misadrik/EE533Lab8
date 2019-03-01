@@ -13,7 +13,8 @@ main:
     addi a5 x0 5 # setting b (array size)
     addi a4 x0 4 # setting i loop (b - 1)
     addi s0 x0 0 # setting i
-
+    j setjeqi
+    
 loopi:
     lw a1 s0 0 #ai
     lw a2 s1 0 #aj
