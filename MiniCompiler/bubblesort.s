@@ -1,4 +1,4 @@
-# a silly verison of bubble sort
+# a silly version of bubble sort
 main:
     addi a5 x0 1
     addi a4 x0 2
@@ -10,15 +10,13 @@ main:
     sw a3 x0 2
     sw a2 x0 3
     sw a1 x0 4
-    addi a5 x0 5 # setting b
-    addi a4 x0 4 # setting i loop
+    addi a5 x0 5 # setting b (array size)
+    addi a4 x0 4 # setting i loop (b - 1)
     addi s0 x0 0 # setting i
-    j loopi
 
 loopi:
     lw a1 s0 0 #ai
     lw a2 s1 0 #aj
-    nop
     nop
     nop # wait to store in the register file
     blt a1 a2 swap # less than swap
@@ -63,7 +61,5 @@ addi:
 exit:
     j exit
     nop
-    nop
     nop 
-
-
+	nop
