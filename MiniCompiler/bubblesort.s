@@ -30,7 +30,6 @@ loopi:
 swap:
     sw a1 s1 0 
     sw a2 s0 0
-    j addj
 
 addj:
    addi s1 s1 1 #no need to add nop here judge last value
@@ -44,7 +43,7 @@ addj:
    nop
 
 setjeqi:
-    addi s1 x0 s0 #b = i b s1
+    addi s1 s0 1 #b = i b s1
     j loopi
     nop
     nop
