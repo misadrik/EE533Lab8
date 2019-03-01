@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nf:module xmlns:nf="http://www.NetFPGA.org/NF2_register_system" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.NetFPGA.org/NF2_register_system NF2_register_system.xsd ">
+    <nf:name>PipelineDatapath</nf:name>
+    <nf:prefix>pipe</nf:prefix>
+    <nf:location>udp</nf:location>
+    <nf:description>Registers for Pipeline</nf:description>
+    <!--specifies the block size of the module; this is the size of the address space allocated to that module, the maximum number of registers that can be instantiated is the block size divided by four (each register is 32 bits/4 bytes wide). Common sizes for udp blocks are 64, 256, and 1024; the only size supported for core blocks is 256k-->
+    <nf:blocksize>64</nf:blocksize>
+  <nf:registers>
+		<nf:register>
+          <nf:name>ctrlb</nf:name>
+          <nf:description>instruction_load ctrl</nf:description>
+          <nf:type>generic_software32</nf:type>
+    </nf:register>
+		
+    <nf:register>
+          <nf:name>dinb_high</nf:name>
+            <nf:description>data memory high32</nf:description>
+            <nf:type>generic_software32</nf:type>
+    </nf:register>
+
+    <nf:register>
+          <nf:name>dinb_low</nf:name>
+            <nf:description>data memory low32</nf:description>
+            <nf:type>generic_software32</nf:type>
+     </nf:register> 
+
+    <nf:register>
+          <nf:name>wctrl</nf:name>
+            <nf:description>register control</nf:description>
+            <nf:type>generic_software32</nf:type>
+    </nf:register>
+
+    <nf:register>
+          <nf:name>wdata_high</nf:name>
+            <nf:description>register file high32</nf:description>
+            <nf:type>generic_software32</nf:type>
+     </nf:register>
+
+    <nf:register>
+          <nf:name>wdata_low</nf:name>
+            <nf:description>register file low32</nf:description>
+            <nf:type>generic_software32</nf:type>
+     </nf:register>
+            
+    <nf:register>
+          <nf:name>Instruction</nf:name>
+            <nf:description>Instruction content</nf:description>
+            <nf:type>generic_software32</nf:type>
+    </nf:register>
+
+    <nf:register>
+          <nf:name>Address</nf:name>
+            <nf:description>Instruction content</nf:description>
+            <nf:type>generic_software32</nf:type>
+    </nf:register>
+		
+		<nf:register>
+          <nf:name>InstructionWatcher</nf:name>
+            <nf:description>InstructionWatcher</nf:description>
+            <nf:type>generic_hardware32</nf:type>
+    </nf:register>
+
+    <nf:register>
+          <nf:name>regfileDFF0_high</nf:name>
+            <nf:description>registerfileDFF_high</nf:description>
+            <nf:type>generic_hardware32</nf:type>
+    </nf:register>
+
+    <nf:register>
+          <nf:name>regfileDFF0_low</nf:name>
+            <nf:description>dIF_Dout</nf:description>
+            <nf:type>generic_hardware32</nf:type>
+    </nf:register>
+             
+    <nf:register>
+          <nf:name>doutb_high</nf:name>
+            <nf:description>data memory high32</nf:description>
+            <nf:type>generic_hardware32</nf:type>
+    </nf:register>
+
+    <nf:register>
+          <nf:name>doutb_low</nf:name>
+            <nf:description>data memory low32</nf:description>
+            <nf:type>generic_hardware32</nf:type>
+     </nf:register>
+
+
+
+    </nf:registers>
+</nf:module>
