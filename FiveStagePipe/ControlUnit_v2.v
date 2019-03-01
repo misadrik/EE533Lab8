@@ -20,8 +20,7 @@ Instruction[14:12] Funct3
 Instruction[11:7] Rd
 Instruction[6:0] OP
 */
-module ControlUnit(Instr,CU_EX_CTRL,CU_MEM_CTRL,CU_WB_CTRL,CU_IMME,clk);
-input clk;
+module ControlUnit(Instr,CU_EX_CTRL,CU_MEM_CTRL,CU_WB_CTRL,CU_IMME);
 input [31:0] Instr;
 output [5:0] CU_EX_CTRL;
 output [3:0] CU_MEM_CTRL;
