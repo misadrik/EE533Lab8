@@ -63,14 +63,14 @@ begin
   5'b00000: //LW neglect Funct3, do load double
   begin
     CU_IMM = Instr[31:20];
-    CU_ALUSrc = 1; //Rs+Rt
+    CU_ALUSrc = 1; //Rs+IMME
     CU_ALU_OP = 4'b0000; //ALU add
-    CU_RegDst = 1;
-    CU_MemWrite = 0;
-    CU_Branch = 2'b11;
-    CU_Jump = 0;
+    //CU_RegDst = 1;
+    CU_MemWrite = 0;  //No need to write to the memeory
+    CU_Branch = 2'b11; //No Branch
+    CU_Jump = 0;  // No Jump
     CU_MemtoReg = 1; //ALU value
-    CU_RegWrite = 1;
+    CU_RegWrite = 1;  // write to the register
 
   end
 
