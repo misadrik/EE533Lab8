@@ -10,9 +10,7 @@ main:
     sw a3 x0 2
     sw a2 x0 3
     sw a1 x0 4
-    addi a5 x0 5 # setting b (array size)
-    addi a4 x0 4 # setting i loop (b - 1)
-    addi s0 x0 0 # setting i
+    # setting i
     j setjeqi
     nop
     nop
@@ -40,7 +38,7 @@ swap:
 addj:
    addi s1 s1 1 #no need to add nop here judge last value
    beq s1 a5 addi # b =5
-   nop
+   nop 
    nop
    nop
    j loopi
