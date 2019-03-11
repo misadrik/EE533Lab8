@@ -7,3 +7,4 @@ Scripts/instr_load.log
 .vscode/settings.json
 FiveStagePipe/group12.bit
 MiniCompiler/assemblycode.txt
+MiniCompiler/machinecode.txt
